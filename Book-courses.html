@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حجز كورسات الشطرنج</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, #0a0f24, #121e3c);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    form {
+      background: #1b2345;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+      width: 350px;
+    }
+    h2 { text-align: center; margin-bottom: 20px; color: #6dd5ed; }
+    label { display: block; margin-top: 10px; }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #6dd5ed;
+      color: #000;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <form id="bookForm">
+    <h2>احجز كورسك الآن ♟️</h2>
+    <label>الاسم الكامل</label>
+    <input type="text" id="name" required>
+
+    <label>البريد الإلكتروني</label>
+    <input type="email" id="email" required>
+
+    <label>اختر الكورس</label>
+    <select id="course" required>
+      <option value="">اختر...</option>
+      <option>أساسيات الشطرنج</option>
+      <option>تكتيكات متقدمة</option>
+      <option>إستراتيجيات متقدمة</option>
+    </select>
+
+    <label>اليوم</label>
+    <input type="date" id="date" required>
+
+    <label>الوقت</label>
+    <input type="time" id="time" required>
+
+    <button type="submit">احجز الآن</button>
+  </form>
+
+  <script src="/js/book-corces.js"></script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!doctype html>
+
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>بروفايل لاعب — Amorian Engine</title>
+  <style>
+    :root{
+      --bg:#0f1115;
+      --card:#14181c;
+      --muted:#9aa3ad;
+      --accent:#28f3ff;
+      --accent-2:#6ef07a;
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --neon: 0 6px 30px rgba(40,243,255,0.06), inset 0 -6px 30px rgba(40,243,255,0.03);
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; padding:36px; background:linear-gradient(180deg,var(--bg),#07080a 160px); color:#e6eef3;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  display:flex; align-items:flex-start; justify-content:center;
+  gap:20px; font-size:14px;
+}
+
+.wrap{width:min(1100px,96vw)}
+
+.top{
+  display:flex; gap:20px; align-items:center; margin-bottom:18px;
+}
+
+.avatar{
+  width:120px; height:120px; border-radius:16px; overflow:hidden; flex:0 0 120px;
+  border:3px solid rgba(255,255,255,0.04); background:linear-gradient(135deg,#0a0b0d,#111316);
+  position:relative; box-shadow:var(--neon);
+}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+.player-head{flex:1}
+.player-head h1{margin:0;font-size:20px;letter-spacing:0.4px}
+.player-head .sub{color:var(--muted);margin-top:6px;font-size:13px}
+
+.rating-card{
+  background:linear-gradient(180deg,var(--card),#0f1316); border-radius:12px; padding:18px; width:300px;
+  box-shadow:0 6px 30px rgba(2,6,10,0.6);
+}
+
+.rating-big{font-size:40px;font-weight:700;display:flex;align-items:center;gap:12px}
+.rating-change{font-size:13px;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(40,243,255,0.12), rgba(110,240,122,0.06)); color:var(--accent);}
+
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.stat{background:var(--glass);padding:10px;border-radius:10px;text-align:center}
+.stat b{display:block;font-size:16px}
+.small{color:var(--muted);font-size:12px}
+
+/* big layout */
+.main{display:grid;grid-template-columns:1fr 360px;gap:20px}
+
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:12px;padding:18px}
+
+.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.section-title h3{margin:0;font-size:16px}
+.btn{background:var(--glass-2);border:1px solid rgba(255,255,255,0.03);padding:8px 12px;border-radius:8px;cursor:pointer}
+
+/* progress ring */
+.ring{width:120px;height:120px;margin:auto;display:grid;place-items:center;border-radius:999px;background:conic-gradient(var(--accent) calc(var(--p)*1%), rgba(255,255,255,0.04) 0%);box-shadow: inset 0 -10px 30px rgba(0,0,0,0.6)}
+.ring .num{font-weight:700;font-size:18px}
+
+/* matches table */
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px;text-align:right}
+tr+tr td{border-top:1px solid rgba(255,255,255,0.03)}
+.outcome.win{color:var(--accent-2)}
+.outcome.loss{color:#ff6b6b}
+.outcome.draw{color:var(--muted)}
+
+/* edit form */
+.field{display:flex;gap:8px;align-items:center}
+label{min-width:80px;color:var(--muted)}
+input[type=text], input[type=number], textarea{flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+
+.controls{display:flex;gap:8px}
+
+/* responsive */
+@media(max-width:980px){.main{grid-template-columns:1fr}}
+
+/* small flourish */
+.neon-line{height:4px;border-radius:999px;background:linear-gradient(90deg, rgba(40,243,255,0.18), rgba(110,240,122,0.12));margin:12px 0}
+
+footer{color:var(--muted);font-size:12px;margin-top:14px;text-align:center}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="avatar" id="avatarWrap">
+        <img id="avatarImg" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><rect fill='%23111618' width='100%'/><text x='50%' y='50%' fill='%2388a' font-size='60' dominant-baseline='middle' text-anchor='middle'>AM</text></svg>" alt="avatar">
+      </div><div class="player-head">
+    <h1 id="username">YOUSEFmohamed-GM <span style='color:var(--muted);font-weight:600;font-size:13px'>🇪🇬</span></h1>
+    <div class="sub" id="tagline">the ROOOOOOOOOOOOOOOK</div>
+    <div class="neon-line"></div>
+
+    <div style="display:flex;gap:12px;align-items:center;margin-top:8px">
+      <div class="rating-card card">
+        <div class="rating-big"><div id="ratingNum">1111</div><div class="rating-change" id="ratingChange">+250</div></div>
+        <div class="stats-grid">
+          <div class="stat"><b id="gamesPlayed">52</b><span class="small">مباريات</span></div>
+          <div class="stat"><b id="winRate">72%</b><span class="small">نسبة الفوز</span></div>
+          <div class="stat"><b id="globalRank">#3447958</b><span class="small">ترتيب عالمي</span></div>
+        </div>
+      </div>
+
+      <div style="width:220px">
+        <div class="card" style="text-align:center">
+          <div class="ring" id="percentRing" style="--p:88.3"><div class="num"><span id="percentTxt">88.3</span>%</div></div>
+          <div style="margin-top:10px;color:var(--muted);font-size:13px">المئينيل (Percentile)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="main">
+  <div>
+    <div class="card">
+      <div class="section-title"><h3>إحصائيات المباريات الأخيرة</h3>
+        <div class="controls">
+          <button class="btn" id="addDummy">أضف مباراة تجريبية</button>
+          <button class="btn" id="resetBtn">إعادة ضبط</button>
+        </div>
+      </div>
+
+      <table id="matchesTable">
+        <thead>
+          <tr><th>النتيجة</th><th>الخصم</th><th>نوع</th><th>تاريخ</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <div class="card">
+      <div class="section-title"><h3>تعديل البروفايل (يحفظ محليًا)</h3>
+        <div><button class="btn" id="saveBtn">حفظ</button></div>
+      </div>
+
+      <div style="display:grid;gap:10px">
+        <div class="field"><label>الصورة</label><input type="file" id="imgInput" accept="image/*"></div>
+        <div class="field"><label>الاسم</label><input type="text" id="nameInput"></div>
+        <div class="field"><label>الشرح</label><input type="text" id="tagInput"></div>
+        <div class="field"><label>التقييم</label><input type="number" id="ratingInput"></div>
+        <div class="field"><label>مباريات</label><input type="number" id="gamesInput"></div>
+        <div class="field"><label>ربح</label><input type="number" id="winsInput"></div>
+        <div class="field"><label>هزيمة</label><input type="number" id="lossInput"></div>
+        <div class="field"><label>تعادل</label><input type="number" id="drawInput"></div>
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px"><button class="btn" id="exportBtn">تصدير JSON</button><button class="btn" id="importBtn">استيراد JSON</button></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div>
+    <div class="card" style="margin-bottom:12px;text-align:center">
+      <h3 style="margin-top:6px">الملف الشخصي</h3>
+      <div style="margin-top:10px">تاريخ التسجيل: <span id="joinDate">May 13, 2025</span></div>
+      <div style="margin-top:12px"><button class="btn" id="toogleEdit">عرض / إخفاء التعديل</button></div>
+    </div>
+
+    <div class="card">
+      <h3 style="text-align:center;margin-top:6px">أصدقاء (4)</h3>
+      <div style="display:grid;gap:8px;margin-top:12px">
+        <div style="display:flex;align-items:center;gap:8px"><div style="width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,#0b0c0e,#121416)"></div><div><b>yousef97979797</b><div class="small">#1 فى الأصدقاء</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px"><div style="width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,#0b0c0e,#121416)"></div><div><b>friend2</b><div class="small">#2</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px"><div style="width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,#0b0c0e,#121416)"></div><div><b>friend3</b><div class="small">#3</div></div></div>
+      </div>
+    </div>
+
+    <div style="height:12px"></div>
+    <footer>مصنوع بـ ❤ — Amorian Engine profile demo (HTML/CSS/JS - client-side).</footer>
+  </div>
+</div>
+
+  </div>  <script>
+    // Simple client-side profile manager using localStorage
+    const defaultProfile = {
+      username: 'YOUSEFmohamed-GM',
+      tagline: 'the ROOOOOOOOOOOOOOOK',
+      rating: 1111,
+      ratingChange: '+250',
+      games: 52,
+      wins: 38,
+      losses: 10,
+      draws: 4,
+      percentile: 88.3,
+      globalRank: '#3447958',
+      joinDate: 'May 13, 2025',
+      avatar: document.getElementById('avatarImg').src,
+      matches: [
+        {outcome:'win',opponent:'opponentA',type:'Rapid',date:'2025-09-01'},
+        {outcome:'loss',opponent:'opponentB',type:'Rapid',date:'2025-08-27'},
+        {outcome:'draw',opponent:'opponentC',type:'Rapid',date:'2025-08-20'}
+      ]
+    };
+
+    function loadProfile(){
+      const raw = localStorage.getItem('amorian_profile');
+      const profile = raw ? JSON.parse(raw) : defaultProfile;
+      // populate UI
+      document.getElementById('username').textContent = profile.username;
+      document.getElementById('tagline').textContent = profile.tagline;
+      document.getElementById('ratingNum').textContent = profile.rating;
+      document.getElementById('ratingChange').textContent = profile.ratingChange || '';
+      document.getElementById('gamesPlayed').textContent = profile.games;
+      const winRate = (profile.wins / Math.max(1,(profile.wins+profile.losses+profile.draws))*100).toFixed(1) + '%';
+      document.getElementById('winRate').textContent = winRate;
+      document.getElementById('globalRank').textContent = profile.globalRank;
+      document.getElementById('percentTxt').textContent = profile.percentile;
+      document.getElementById('joinDate').textContent = profile.joinDate;
+      if(profile.avatar) document.getElementById('avatarImg').src = profile.avatar;
+      // inputs
+      document.getElementById('nameInput').value = profile.username;
+      document.getElementById('tagInput').value = profile.tagline;
+      document.getElementById('ratingInput').value = profile.rating;
+      document.getElementById('gamesInput').value = profile.games;
+      document.getElementById('winsInput').value = profile.wins;
+      document.getElementById('lossInput').value = profile.losses;
+      document.getElementById('drawInput').value = profile.draws;
+
+      renderMatches(profile.matches || []);
+      updateRing(profile.percentile || 0);
+    }
+
+    function saveProfile(){
+      const profile = {
+        username: document.getElementById('nameInput').value || 'Player',
+        tagline: document.getElementById('tagInput').value || '',
+        rating: Number(document.getElementById('ratingInput').value) || 1000,
+        ratingChange: (Number(document.getElementById('ratingInput').value) - 1111 > 0) ? '+' + (Number(document.getElementById('ratingInput').value) - 1111) : '' ,
+        games: Number(document.getElementById('gamesInput').value) || 0,
+        wins: Number(document.getElementById('winsInput').value) || 0,
+        losses: Number(document.getElementById('lossInput').value) || 0,
+        draws: Number(document.getElementById('drawInput').value) || 0,
+        percentile: Number(document.getElementById('percentTxt').textContent) || 0,
+        globalRank: document.getElementById('globalRank').textContent || '',
+        joinDate: document.getElementById('joinDate').textContent || '',
+        avatar: document.getElementById('avatarImg').src,
+        matches: getCurrentMatches()
+      };
+      localStorage.setItem('amorian_profile', JSON.stringify(profile));
+      loadProfile();
+      animateRating();
+      alert('تم الحفظ محليًا');
+    }
+
+    function renderMatches(matches){
+      const tbody = document.querySelector('#matchesTable tbody'); tbody.innerHTML='';
+      matches.forEach(m=>{
+        const tr = document.createElement('tr');
+        const tdOutcome = document.createElement('td'); tdOutcome.innerHTML = <span class='outcome ${m.outcome}'>${m.outcome}</span>;
+        const tdOpp = document.createElement('td'); tdOpp.textContent = m.opponent;
+        const tdType = document.createElement('td'); tdType.textContent = m.type;
+        const tdDate = document.createElement('td'); tdDate.textContent = m.date;
+        tr.appendChild(tdOutcome); tr.appendChild(tdOpp); tr.appendChild(tdType); tr.appendChild(tdDate);
+        tbody.appendChild(tr);
+      })
+    }
+
+    function getCurrentMatches(){
+      const rows = document.querySelectorAll('#matchesTable tbody tr');
+      return Array.from(rows).map(r=>({
+        outcome: r.querySelector('.outcome')?.classList.contains('win') ? 'win' : r.querySelector('.outcome')?.classList.contains('loss') ? 'loss' : 'draw',
+        opponent: r.children[1].textContent,
+        type: r.children[2].textContent,
+        date: r.children[3].textContent
+      }))
+    }
+
+    function updateRing(p){
+      const ring = document.getElementById('percentRing');
+      ring.style.setProperty('--p', String(p));
+      document.getElementById('percentTxt').textContent = Number(p).toFixed(1);
+    }
+
+    // avatar upload
+    document.getElementById('imgInput').addEventListener('change', e=>{
+      const file = e.target.files[0]; if(!file) return;
+      const reader = new FileReader();
+      reader.onload = ()=>{ document.getElementById('avatarImg').src = reader.result };
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById('saveBtn').addEventListener('click', saveProfile);
+
+    document.getElementById('toogleEdit').addEventListener('click', ()=>{
+      const el = document.querySelector('[id^="nameInput"]'); el.scrollIntoView({behavior:'smooth'});
+    });
+
+    // animation for rating when loading
+    function animateRating(){
+      const el = document.getElementById('ratingNum');
+      const target = Number(document.getElementById('ratingInput').value || el.textContent);
+      const start = Number(el.textContent) || 0;
+      const diff = target - start; const duration=800; const startTime = performance.now();
+      requestAnimationFrame(function tick(t){
+        const p = Math.min(1,(t-startTime)/duration);
+        const cur = Math.round(start + diff * easeOutCubic(p));
+        el.textContent = cur;
+        if(p<1) requestAnimationFrame(tick);
+      })
+    }
+    function easeOutCubic(x){return 1 - Math.pow(1 - x, 3)}
+
+    // add dummy match
+    document.getElementById('addDummy').addEventListener('click', ()=>{
+      const tbody = document.querySelector('#matchesTable tbody');
+      const tr = document.createElement('tr');
+      const outcomes = ['win','loss','draw']; const o = outcomes[Math.floor(Math.random()*3)];
+      tr.innerHTML = <td><span class='outcome ${o}'>${o}</span></td><td>bot_${Math.floor(Math.random()*999)}</td><td>Rapid</td><td>${new Date().toLocaleDateString()}</td>;
+      tbody.prepend(tr);
+      // update counts in inputs
+      document.getElementById('gamesInput').value = Number(document.getElementById('gamesInput').value||0)+1;
+      if(o==='win') document.getElementById('winsInput').value = Number(document.getElementById('winsInput').value||0)+1;
+      if(o==='loss') document.getElementById('lossInput').value = Number(document.getElementById('lossInput').value||0)+1;
+      if(o==='draw') document.getElementById('drawInput').value = Number(document.getElementById('drawInput').value||0)+1;
+    });
+
+    // reset
+    document.getElementById('resetBtn').addEventListener('click', ()=>{ localStorage.removeItem('amorian_profile'); location.reload(); });
+
+    // export/import
+    document.getElementById('exportBtn').addEventListener('click', ()=>{
+      const raw = localStorage.getItem('amorian_profile') || JSON.stringify(defaultProfile);
+      const blob = new Blob([raw], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href=url; a.download='amorian_profile.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('importBtn').addEventListener('click', ()=>{
+      const inp = document.createElement('input'); inp.type='file'; inp.accept='application/json';
+      inp.onchange = e=>{
+        const f = e.target.files[0]; if(!f) return; const r = new FileReader();
+        r.onload = ()=>{ try{ const obj = JSON.parse(r.result); localStorage.setItem('amorian_profile', JSON.stringify(obj)); loadProfile(); alert('تم الاستيراد'); }catch(err){alert('ملف غير صالح')} };
+        r.readAsText(f);
+      };
+      inp.click();
+    });
+
+    // small helper
+    function getMatchesFromProfile(){
+      const raw = localStorage.getItem('amorian_profile');
+      if(!raw) return defaultProfile.matches;
+      try{return JSON.parse(raw).matches||[] }catch(e){return defaultProfile.matches}
+    }
+
+    function getCurrentProfile(){ return localStorage.getItem('amorian_profile') ? JSON.parse(localStorage.getItem('amorian_profile')) : defaultProfile }
+
+    loadProfile();
+    animateRating();
+  </script></body>
+</html>

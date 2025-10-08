@@ -1,0 +1,90 @@
+*{
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+body{
+    background: url('/img/a289eddb-f456-48db-bfa6-585dad3c06b8.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+h1{
+    padding: 15px;
+    margin: 15px;
+    color: aliceblue;
+    left: 60px;
+    display: flex;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    font-size: 2em;
+    font-weight: 500;
+    font-display: inherit
+}
+.contanier{
+    padding: 10px;
+    margin: 10px;
+    flex-direction: column;
+    height: 100vh;
+}
+form{
+    padding: 20px;
+    margin: 20px;
+    position: absolute;
+    top: 40%;
+    
+}
+
+.input-box{
+    padding: 5px;
+    margin: 5px;
+    margin-bottom: 10px;
+
+}
+input{
+    padding: 7px;
+    font-size: 1.3em;
+    border-radius: 50px;
+    border: none;
+}
+
+a{
+    text-decoration: none;
+    color: #00ffff;
+}
+a:hover{
+    color: #0dff0d;
+}
+
+.my-p{
+    margin: 10px;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+button{
+    font-size: 1.3em;
+    color: #fff;
+    background-color: #71f171;
+    padding: 5px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 30px;
+    border-radius: 50px;
+    border: none;
+    display: flex;
+    text-align: center;
+
+    
+}
+
+button:hover{
+    background-color: #058605;
+    transition: 1s ease;
+}

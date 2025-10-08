@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess-online-courses</title>
+
+    <!-- CSS Main -->
+    <link rel="stylesheet" href="/css/courses.css">
+
+    <!-- AOS Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1 data-aos="fade-down"  data-aos-duration="2000">Chess Learning Hub</h1>
+        <p data-aos="fade-down"  data-aos-duration="2500">Organized chess videos for all levels</p>
+    </header>
+<!-- audio section -->
+    <audio id="bg-music" autoplay loop>
+    <source src="/AUDIO/good-night-lofi-cozy-chill-music-160166 (1).mp3" type="audio/mpeg">
+   
+</audio>
+
+    <!-- Opening Section -->
+    <section class="video-section" id="openings" data-aos="fade-up">
+        <h2>Openings</h2>
+        <div class="video-grid">
+            <div class="video-card">
+                <img src="/img/opening-1.avif" alt="Chess Opening">
+                <h3>Basic Chess Openings</h3>
+            </div>
+            <div class="video-card">
+                <img src="/img/opning-2.avif" alt="Chess Opening">
+                <h3>Advanced Opening Strategies</h3>
+            </div>
+        </div>
+        <a href="openings.html" class="view-more">View More</a>
+    </section>
+
+    <!-- Midgame Section -->
+    <section class="video-section" id="midgame" data-aos="fade-up">
+        <h2>Midgame</h2>
+        <div class="video-grid">
+            <div class="video-card">
+                <img src="/img/middle-game.avif" alt="Midgame Chess">
+                <h3>Midgame Tactics</h3>
+            </div>
+            <div class="video-card">
+                <img src="/img/middle-game-2.avif" alt="Midgame Chess">
+                <h3>Attacking in the Midgame</h3>
+            </div>
+        </div>
+        <a href="midgame.html" class="view-more">View More</a>
+    </section>
+
+    <!-- Endgame Section -->
+    <section class="video-section" id="endgame" data-aos="fade-up">
+        <h2>Endgame</h2>
+        <div class="video-grid">
+            <div class="video-card">
+                <img src="/img/end-game2.avif" alt="Endgame Chess">
+                <h3>King and Pawn Endgames</h3>
+            </div>
+            <div class="video-card">
+                <img src="/img/end-game-1.avif" alt="Endgame Chess">
+                <h3>Checkmate Patterns</h3>
+            </div>
+        </div>
+        <a href="endgame.html" class="view-more">View More</a>
+    </section>
+
+    <!-- Strategy Section -->
+    <section class="video-section" id="strategy" data-aos="fade-up">
+        <h2>Strategy</h2>
+        <div class="video-grid">
+            <div class="video-card">
+                <img src="/img/stragy.jpg" alt="Chess Strategy">
+                <h3>Positional Play</h3>
+            </div>
+            <div class="video-card">
+                <img src="/img/stratgy-2.webp" alt="Chess Strategy">
+                <h3>Long-term Planning</h3>
+            </div>
+        </div>
+        <a href="strategy.html" class="view-more">View More</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <h2>Chess Learning Hub</h2>
+            <p>Enhance your chess skills at every level.</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="footer-social">
+            <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" alt="Facebook"></a>
+            <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg" alt="Twitter"></a>
+            <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/instagram/instagram-original.svg" alt="Instagram"></a>
+            <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/youtube/youtube-original.svg" alt="YouTube"></a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Chess Learning Hub. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    
+
+// Actevate sound when user react with wepsite
+document.addEventListener("click", () => {
+    const music = document.getElementById("bg-music");
+    music.volume = 0.3; // simple sound efect
+    music.play();
+}, { once: true });
+
+
+</script>
+    <!-- AOS Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Main Script -->
+    <script src="/js/courses.js"></script>
+</body>
+</html>

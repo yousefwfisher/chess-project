@@ -1,0 +1,117 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  -webkit-user-drag: none;
+}
+
+body{
+    background-color: #222;
+}
+
+.contact {
+  background-color: #222;
+  padding: 100px 20px;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 2.5em;
+  color: #7fdf20;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #333;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  color: #89e691;
+  font-weight: 600;
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #111;
+  color: #fff;
+  font-size: 1em;
+  margin-bottom: 10px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border: 2px solid #7fdf20;
+  box-shadow: 0 0 10px rgba(127, 223, 32, 0.6);
+}
+
+.contact-form button {
+  margin-top: 20px;
+  padding: 12px;
+  font-size: 1.1em;
+  background-color: #7fdf20;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #62b602;
+}
+
+.social-icons-contact {
+  margin-top: 30px;
+  text-align: center;
+}
+.courses{
+  font-size: 1.8em;
+  font-weight: 600;
+  color: #7fdf20;
+  border: none;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+.social-icons-contact a {
+  color: #7fdf20;
+  font-size: 1.7em;
+  margin: 0 12px;
+  transition: color 0.3s ease;
+}
+
+.social-icons-contact a:hover {
+  color: #00a323;
+}
+
+
+.form-response {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 0.3s ease;
+}

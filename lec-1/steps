@@ -1,0 +1,287 @@
+---
+
+lec 1 in python 
+
+
+---
+
+. what does programming mean?
+(دردشة سوا):
+Programming means giving instructions to the computer to do tasks.
+It's like telling a very fast and accurate worker what to do step by step.
+
+
+---
+
+. what is the binary code?
+
+1 = electricity (on)
+
+0 = no electricity (off)
+
+It consists of only two digits: 0 and 1
+
+Computers understand binary to process and store data
+
+
+
+---
+
+. what is the internet?
+
+It's a global network that connects millions of computers together
+
+Allows sharing of information, files, and communication
+
+
+
+---
+
+. how does the internet work?
+
+Your device connects to a router
+
+The router connects to your ISP (Internet Service Provider)
+
+Then it reaches servers that store the data you request
+
+Data travels in small packets across different paths and gets reassembled when it arrives
+
+
+
+---
+
+. what is python?
+
+A high-level programming language that can do almost anything
+
+Free and open-source
+
+Interpreted (runs line by line)
+
+Interactive (you can test code directly)
+
+
+
+---
+
+. why python?
+
+Easy to install and learn
+
+Clean and readable syntax
+
+Error handling is simple
+
+Easy debugging (Python has its own debugger)
+
+Cross-platform (works on Windows, macOS, Linux)
+
+Expressive and powerful
+
+Object-Oriented Programming support
+
+Integrated easily with other languages/tools
+
+Supports modules and packages
+
+Large library and plugin support
+
+Memory management via Garbage Collection
+
+Multi-purpose: Web, AI, Data Science, Automation...
+
+Great and active community
+
+Growing very fast
+
+You can even switch careers with just Python basics
+
+
+
+---
+
+. the command line (cmd)
+
+Used to install Python
+
+Install libraries and packages
+
+Create and activate virtual environments
+
+Run Python servers (e.g., Flask, Django)
+
+Create new projects
+
+Open them in VS Code
+
+Check for errors
+
+Navigate the file system and folders
+
+
+
+---
+
+. comments in python
+
+Single line comment: # your comment here
+
+Multi-line documentation/comment:
+
+"""
+Your multi-line comment
+"""
+
+
+
+---
+
+. data types
+
+str – string (text)
+
+int – integer (whole numbers)
+
+float – decimal numbers
+
+bool – boolean (True/False)
+
+list – a group of items
+
+var – (معلومة: في بايثون مفيش حاجة اسمها var، لكن المتغير بيتكتب كده: x = 5)
+
+
+
+---
+
+. type casting
+
+Means converting from one data type to another
+
+Example:
+
+int("5")  # turns string "5" into number 5
+
+
+
+---
+
+. if condition
+
+Used to control the flow of code
+
+Syntax:
+
+if condition:
+    # do something
+elif another_condition:
+    # do something else
+else:
+    # fallback
+
+
+
+---
+
+. loops
+
+Used to repeat code
+
+for loop
+
+while loop
+
+Example:
+
+for i in range(5):
+    print(i)
+
+while condition:
+    # keep doing this
+
+
+
+---
+
+. lists
+
+Contains multiple items
+
+Example:
+
+my_list = [1, 2, 3, "hello", True]
+
+
+
+---
+
+. functions
+
+Reusable blocks of code
+
+Syntax:
+
+def say_hello():
+    print("Hello!")
+
+
+
+---
+
+. numpy (introduction)
+
+A library used for mathematical operations and arrays
+
+Useful in data science and AI
+
+Example:
+
+import numpy as np
+arr = np.array([1, 2, 3])
+
+
+
+---
+
+. module
+
+A file that contains Python code (functions, variables...)
+
+You can import it into another file
+
+Example:
+
+import math
+print(math.sqrt(16))
+
+
+
+---
+
+. OOP (inheritance only)
+
+Object-Oriented Programming allows code reusability
+
+Inheritance means a class can use features from another class
+
+Example:
+
+class Animal:
+    def speak(self):
+        print("Sound")
+
+class Dog(Animal):
+    pass
+
+d = Dog()
+d.speak()  # Output: Sound
+
+
+
+---
+
+🎉 These are the basics — Congratulations! 🎉
+
+
+---
